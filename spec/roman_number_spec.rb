@@ -2,16 +2,24 @@ require 'spec_helper'
 
 describe RomanNumber do
   describe '.roman' do
-    context 'when number is less than 5' do
-      (1...5).each do |i|
-        it "converts the number #{i} to the string I" do
-          expect(described_class.roman(i)).to eq('I' * i)
-        end
+    {
+      1   => 'I',
+      2   => 'II',
+      3   => 'III',
+      4   => 'IV',
+      5   => 'V',
+      6   => 'VI',
+      7   => 'VII',
+      8   => 'VIII',
+      9   => 'IX',
+      10  => 'X',
+      11  => 'XI',
+      12  => 'XII',
+      13  => 'XIII'
+    }.each do |number, roman_number|
+      it "converts the number #{number} to the string #{roman_number}" do
+        expect(described_class.roman(number)).to eq(roman_number)
       end
-    end
-
-    it 'converts the number 5 to the string V' do
-      expect(described_class.roman(5)).to eq('V')
     end
   end
 end
