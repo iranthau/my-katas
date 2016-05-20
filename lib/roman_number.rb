@@ -1,9 +1,15 @@
 # RomanNumber
 class RomanNumber
   ROMAN_MAP = {
-    5 => 'V',
-    4 => 'IV',
-    1 => 'I'
+    1000  => 'M',
+    500   => 'D',
+    100   => 'C',
+    50    => 'L',
+    40    => 'XL',
+    10    => 'X',
+    5     => 'V',
+    4     => 'IV',
+    1     => 'I'
   }.freeze
 
   def self.roman(number)
