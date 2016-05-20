@@ -1,18 +1,18 @@
 # RomanNumber
 class RomanNumber
   ROMAN_MAP = {
-    1   => 'I',
-    4   => 'IV',
-    5   => 'V',
-    9   => 'IX',
-    10  => 'X'
+    5 => 'V',
+    4 => 'IV',
+    1 => 'I'
   }.freeze
 
-  def self.roman(n)
-    return ROMAN_MAP[1] * n if n < 4
-    if (n % 5).between?(1, 3)
-      return ROMAN_MAP[n - (n % 5)] + roman(n % 5)
-    end
-    ROMAN_MAP[n].to_s
+  def self.roman(number)
+    return '' if number.zero?
+    arabic, roman_number = conversion_factors_for(number)
+    roman_number + roman(number - arabic)
+  end
+
+  def self.conversion_factors_for(number)
+    ROMAN_MAP.find { |arabic, _| arabic <= number }
   end
 end
