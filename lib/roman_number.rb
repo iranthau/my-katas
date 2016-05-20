@@ -14,6 +14,7 @@ class RomanNumber
 
   def self.roman(number)
     return '' if number.zero?
+    return 'number is out of range' if number >= 5000
     arabic, roman_number = conversion_factors_for(number)
     roman_number + roman(number - arabic)
   end

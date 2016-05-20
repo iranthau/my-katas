@@ -19,5 +19,17 @@ describe RomanNumber do
         expect(described_class.roman(number)).to eq(roman_number)
       end
     end
+
+    context 'when the given number is 0' do
+      it 'returns nothing' do
+        expect(described_class.roman(0)).to eq('')
+      end
+    end
+
+    context 'when the given number is greater than 4999' do
+      it 'returns out of range message' do
+        expect(described_class.roman(5000)).to eq('number is out of range')
+      end
+    end
   end
 end
